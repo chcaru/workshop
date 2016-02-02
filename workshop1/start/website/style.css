@@ -1,0 +1,20 @@
+
+body {
+	background-color: #333;
+	color: #9bd7d5;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: .2px;
+    font-size: 16px;
+}
+
+.big {
+	font-size: 24px;
+}
+
+.bigger {
+	font-size: 32px;
+}
+
+.hoverRed:hover {
+	color: red;
+}

@@ -1,0 +1,38 @@
+
+body {
+	background-color: #333;
+	color: #9bd7d5;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: .2px;
+    font-size: 16px;
+}
+
+.center {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    top: calc(50% - 50px);
+    justify-content: center;
+}
+
+div.greeting {
+    font-size: 32px;
+    height: 40px;
+}
+
+input.greeting {
+    height: 25px;
+}
+
+button.greeting {
+    width: 100px;
+    height: 25px;
+}
+
+.greeting {
+    margin: 5px;
+}
+
+#history {
+    margin: 5px;
+}
