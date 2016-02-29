@@ -1,0 +1,72 @@
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: .2px;
+    font-size: 16px;
+    background-color: aliceblue;
+}
+
+form {
+    margin: 0;
+}
+
+.center {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    top: calc(50% - 50px);
+    justify-content: center;
+}
+
+.unselectable {
+    user-select: none;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.todoList {
+    background-color: #ffffa5;
+    border-radius: 10px;
+    border: 1px solid gray;
+    box-shadow: 10px 9px 26px -3px rgba(0,0,0,0.55);
+}
+
+.todoTitle {
+    text-align: center;
+    min-width: 300px;
+    border-bottom: 1px solid #ff704d;
+    padding: 15px;
+}
+
+.todoItem {
+    padding: 15px;
+    border-bottom: 1px solid #1ab2ff;
+    position: relative;
+    width: 300px;
+}
+
+.todoItemDisplay {
+    min-height: 21px;
+}
+
+input.editTodoItem {
+    border: none;
+    border-bottom: 1px solid gray;
+    background-color: inherit;
+    outline: none;
+    font-size: inherit;
+    width: calc(100% - 10px);
+}
+
+.todoItemOption {
+    position: absolute;
+    top: calc(50% - 8px);
+    right: 3px;
+}
+
+.addItem {
+    text-align: center;
+    padding: 15px;
+}

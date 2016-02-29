@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body ng-app="todo">
+        <div class="center">
+            <div class="todoList" ng-controller="TodoController">
+                <div class="todoTitle">My Todo List</div>
+                <div class="todoItem"
+                    ng-dblclick="toggleEdit(item)"
+                    ng-repeat="item in items"
+                    ng-mouseenter="item.focus=true"
+                    ng-mouseleave="item.focus=false">
+                    <form ng-submit="toggleEdit(item)">
+                        <div class="todoItemDisplay unselectable pointer" ng-hide="item.edit">
+                            {{item.text}}
+                        </div>
+                        <input class="editTodoItem"
+                            ng-show="item.edit"
+                            ng-model="item.text"
+                            placeholder="Describe your todo item...">
+                    </form>
+                    <div class="todoItemOption" ng-show="item.focus">
+                        <i class="fa fa-times pointer" ng-click="removeItem(item)"></i>
+                    </div>
+                </div>
+                <div class="addItem">
+                    <i class="fa fa-plus pointer" ng-click="addNewItem()"></i>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
