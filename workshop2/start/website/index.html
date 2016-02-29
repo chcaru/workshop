@@ -5,20 +5,42 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
         <script src="app.js"></script>
     </head>
+
+    <!-- TODO: 7. attach body to 'todo' module  -->
     <body>
         <div class="center">
+
+            <!-- TODO: 8. attach this div to 'TodoController'  -->
             <div class="todoList">
                 <div class="todoTitle">My Todo List</div>
+
+                <!-- TODO: 9. repeat this div for all scope.items -->
+                <!-- TODO: 10. toggleEdit on double click -->
+                <!-- TODO: 11. set item.focus on mouseenter mouseleave -->
                 <div class="todoItem">
+
+                    <!-- TODO: 12. toggleEdit on submit -->
                     <form>
+
+                        <!-- TODO: 13. display item's name inside of this div -->
+                        <!-- TODO: 14. hide this div when item.edit is true -->
                         <div class="todoItemDisplay unselectable pointer"></div>
+
+                        <!-- TODO: 15. bind this input's value to the item's text -->
+                        <!-- TODO: 16. show this input only when item.edit is true -->
                         <input class="editTodoItem" placeholder="Describe your todo item...">
                     </form>
+
+                    <!-- TODO: 17. show this div only when item.focus is true -->
                     <div class="todoItemOption">
+
+                        <!-- TODO: 18. when clicked, this should removeItem (the current item) -->
                         <i class="fa fa-times pointer"></i>
                     </div>
                 </div>
                 <div class="addItem">
+
+                    <!-- TODO: 19. when clicked, this should addNewItem -->
                     <i class="fa fa-plus pointer"></i>
                 </div>
             </div>
