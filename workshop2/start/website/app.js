@@ -7,15 +7,18 @@
     // TODO: 26. implement 'get(id)'
     // TODO: 27. implement 'update(id, items)'
 
+// TODO: 28. add 'todoLists' and '$location' dependencies
 // TODO: 2. create 'TodoController'
     // TODO: 3. init items
-    // TODO: 28. add 'todoLists' and '$location' dependencies,
-    //       and check to see if 'id' query param is set
-        // TODO: 29. if so, get list from 'todoLists' service
-        // TODO: 30. if not, add new 'id' to query param
-    // TODO: 31. implement update function
+    // TODO: 29. check to see if 'id' query param is set
+        // TODO: 30. if so, get list from 'todoLists' service
+        // TODO: 31. if not, add new 'id' to query param
+    // TODO: 32. implement update function
+    // TODO: 33.1 add update function
     // TODO: 4. implement addNewItem function
+    // TODO: 33.2 add update function
     // TODO: 5. implement toggleEdit function
+    // TODO: 33.3 add update function
     // TODO: 6. implement removeItem function
 
 
