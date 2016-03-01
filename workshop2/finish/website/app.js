@@ -15,11 +15,11 @@ app.factory('socket', () => io.connect('http://localhost'));
 // It does this by interfacing with the low level 'socket'
 // service we made earlier
 app.factory('todoLists', ['socket', socket => ({
-    
+
     // Obtains a todo list by its id using the socket
     get: id => {
         var deferred = Promise.defer();
-        socket.emit('get', id, items => deferred.resolve(items))
+        socket.emit('get', id, items => deferred.resolve(items));
         return deferred.promise;
     },
 
@@ -27,11 +27,11 @@ app.factory('todoLists', ['socket', socket => ({
     // Notice it strips the items of their state
     // specific properties, as these should not
     // be saved (unless you did...)
-    update: (id, items) =>
-        socket.emit('update', {
-            id: id,
-            items: items.map(i => ({ text: i.text }))
-        })
+    update: (id, items) => socket.emit('update', {
+        id: id,
+        items: items.map(i => ({ text: i.text }))
+    })
+
 })]);
 
 // Creates the 'TodoController' which is attached to
@@ -64,13 +64,14 @@ app.controller('TodoController', ['$scope', 'todoLists', '$location', (scope, to
             // of the normal digest cycle
             scope.$apply();
         });
-    }
-    else {
+
+    } else {
 
         // Set 'id' query param with an new uuid (unique identifier)
         // This is so we can universally identify the todo list
         // and obtain it above if it exists
         location.search({ id: uuid() });
+
     }
 
     // Shortcut to update the server with the most
