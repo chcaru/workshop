@@ -4,6 +4,9 @@ body {
     letter-spacing: .2px;
     font-size: 16px;
     background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 form {
@@ -26,7 +29,7 @@ form {
     border: 1px solid gray;
     box-shadow: 10px 9px 26px -3px rgba(0,0,0,0.55);
     max-height: 100%;
-    overflow-y: scroll;
+    overflow: auto;
 }
 
 .todoTitle {
@@ -56,6 +59,8 @@ input.editTodoItem {
     outline: none;
     font-size: inherit;
     width: calc(100% - 10px);
+    text-align: center;
+    overflow-wrap: break-word;
 }
 
 .todoItemOption {

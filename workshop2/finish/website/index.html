@@ -22,69 +22,67 @@
 
     <!-- Attach the <body> to our angular module 'todo' -->
     <body ng-app="todo">
-        <div class="center">
 
-            <!-- Attach this to our angular controller 'TodoController' -->
-            <div class="todoList" ng-controller="TodoController">
-                <div class="todoTitle">My Todo List</div>
+        <!-- Attach this to our angular controller 'TodoController' -->
+        <div class="todoList" ng-controller="TodoController">
+            <div class="todoTitle">My Todo List</div>
 
-                <!-- This does a lot, but it's important to note that this
-                     will repeat for each item in our scope.items list
-                     inside of our TodoController controller -->
-                <div class="todoItem"
-                    ng-repeat="item in items"
-                    ng-dblclick="toggleEdit(item)"
-                    ng-mouseenter="item.focus=true"
-                    ng-mouseleave="item.focus=false">
+            <!-- This does a lot, but it's important to note that this
+                    will repeat for each item in our scope.items list
+                    inside of our TodoController controller -->
+            <div class="todoItem"
+                ng-repeat="item in items"
+                ng-dblclick="toggleEdit(item)"
+                ng-mouseenter="item.focus=true"
+                ng-mouseleave="item.focus=false">
 
-                    <!-- When 'enter' is pressed while focusing on an element
-                         in the form, our scope.toggleEdit function in the
-                         TodoController will be invoked with the item -->
-                    <form ng-submit="toggleEdit(item)">
+                <!-- When 'enter' is pressed while focusing on an element
+                        in the form, our scope.toggleEdit function in the
+                        TodoController will be invoked with the item -->
+                <form ng-submit="toggleEdit(item)">
 
-                        <!-- Shows the text for the todo item from scope.items[i].index
-                             set in the TodoController. Also, this is hidden when the
-                             scope.items[i].edit state is true-->
-                        <div class="todoItemDisplay unselectable pointer" ng-hide="item.edit">
-                            {{item.text}}
-                        </div>
-
-                        <!-- This is shown when the scope.items[i].edit state is true.
-                             ng-model="item.text" binds the value of this input to the
-                             scope.items[i].text in the scope of the TodoController -->
-                        <input class="editTodoItem"
-                            ng-model="item.text"
-                            ng-show="item.edit"
-                            placeholder="Describe your todo item...">
-
-                    </form>
-
-                    <!-- Shows the 'X' button when the item is being hovered over.
-                         We know this because the scope.items[i].focus will be true,
-                         so that's why we attach it to ng-show -->
-                    <div class="todoItemOption" ng-show="item.focus">
-
-                        <!-- Uses font-awesome to put an 'X' glyph icon here.
-                             Also, when clicked, this will invoke scope.removeItem
-                             on our TodoController's scope with this current item -->
-                        <i class="fa fa-times pointer" ng-click="removeItem(item)"></i>
-
+                    <!-- Shows the text for the todo item from scope.items[i].index
+                            set in the TodoController. Also, this is hidden when the
+                            scope.items[i].edit state is true-->
+                    <div class="todoItemDisplay unselectable pointer" ng-hide="item.edit">
+                        {{item.text}}
                     </div>
 
+                    <!-- This is shown when the scope.items[i].edit state is true.
+                            ng-model="item.text" binds the value of this input to the
+                            scope.items[i].text in the scope of the TodoController -->
+                    <input class="editTodoItem"
+                        ng-model="item.text"
+                        ng-show="item.edit"
+                        placeholder="Describe your todo item...">
+
+                </form>
+
+                <!-- Shows the 'X' button when the item is being hovered over.
+                        We know this because the scope.items[i].focus will be true,
+                        so that's why we attach it to ng-show -->
+                <div class="todoItemOption" ng-show="item.focus">
+
+                    <!-- Uses font-awesome to put an 'X' glyph icon here.
+                            Also, when clicked, this will invoke scope.removeItem
+                            on our TodoController's scope with this current item -->
+                    <i class="fa fa-times pointer" ng-click="removeItem(item)"></i>
+
                 </div>
 
-                <!-- This is the container for the '+' button,
-                     to add an item to the todo list -->
-                <div class="addItem">
-
-                    <!-- Uses font-awesome to put a '+' glyph icon here.
-                         Also, when clicked, this invoke the scope.addNewItem
-                         function on our TodoController's scope -->
-                    <i class="fa fa-plus pointer" ng-click="addNewItem()"></i>
-
-                </div>
             </div>
 
+            <!-- This is the container for the '+' button,
+                    to add an item to the todo list -->
+            <div class="addItem">
+
+                <!-- Uses font-awesome to put a '+' glyph icon here.
+                        Also, when clicked, this invoke the scope.addNewItem
+                        function on our TodoController's scope -->
+                <i class="fa fa-plus pointer" ng-click="addNewItem()"></i>
+
+            </div>
         </div>
+
     </body>
 </html>
