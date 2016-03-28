@@ -1,0 +1,58 @@
+
+<!-- If you're interested in how the styling works, simply find
+     the class name of the element you're curious about, then
+     look it up in the style.css file to see how it works.  -->
+<html>
+    <head>
+        <!-- Load our stylesheet -->
+        <link rel="stylesheet" href="style.css">
+
+        <!-- Load font-awesome icon font -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        <!-- Angular Material Styles -->
+        <link rel="stylesheet" href="https://gitcdn.link/repo/angular/bower-material/master/angular-material.css">
+
+        <!-- We're using non minified js so I can quickly help debug people who get stuck -->
+
+        <!-- Load the AngularJS library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+
+        <!-- Load the socket.io client library -->
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+        <!-- Anglar Material Dependencies -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.js"></script>
+
+        <!-- Angular Material Library -->
+        <script src="https://gitcdn.link/repo/angular/bower-material/master/angular-material.js"></script>
+
+        <!-- Load our app script -->
+        <script src="app.js"></script>
+    </head>
+
+    <body ng-app="liveChat">
+        <div class="mainContainer" ng-controller="ChatController" md-whiteframe="16">
+            <form name="sendMessage" ng-submit="send()">
+                <md-input-container class="md-block">
+                    <label>Send a message</label>
+                    <input md-maxlength="150" required md-no-asterisk name="msgText" ng-model="text">
+                </md-input-container>
+                <md-button class="md-raised md-primary" ng-click="send()">Send</md-button>
+            </form>
+            <md-content class="chatContainer">
+                <md-list>
+                    <md-list-item class="md-1-line" ng-repeat="message in messages">
+                        <div class="md-list-item-text">
+                            <h3>{{message.name}}</h3>
+                            <p>{{message.text}}</p>
+                        </div>
+                        <md-divider ng-if="!$last"></md-divider>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
+    </body>
+</html>

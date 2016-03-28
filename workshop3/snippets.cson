@@ -1,0 +1,105 @@
+
+# Atom snippets for workshop2
+
+'.text.html, .text.html .meta.scope.between-tag-pair, .text.html .punctuation.tag.begin':
+    'Step 7':
+        'prefix': '7.'
+        'body': ' ng-app="todo"'
+    'Step 8':
+        'prefix': '8.'
+        'body': ' ng-controller="TodoController"'
+    'Step 9':
+        'prefix': '9.'
+        'body': '\n\tng-repeat="item in items"'
+    'Step 10':
+        'prefix': '10.'
+        'body': '\nng-dblclick="toggleEdit(item)"'
+    'Step 11':
+        'prefix': '11.'
+        'body': '\nng-mouseenter="item.focus=true"\nng-mouseleave="item.focus=false"'
+    'Step 12':
+        'prefix': '12.'
+        'body': ' ng-submit="toggleEdit(item)"'
+    'Step 13':
+        'prefix': '13.'
+        'body': '\n\t{{item.text}}\n'
+    'Step 14':
+        'prefix': '14.'
+        'body': ' ng-hide="item.edit"'
+    'Step 15':
+        'prefix': '15.'
+        'body': '\n\tng-model="item.text"$1\n\t'
+    'Step 16':
+        'prefix': '16.'
+        'body': '\nng-show="item.edit"'
+    'Step 17':
+        'prefix': '17.'
+        'body': ' ng-show="item.focus"'
+    'Step 18':
+        'prefix': '18.'
+        'body': ' ng-click="removeItem(item)"'
+    'Step 19':
+        'prefix': '19.'
+        'body': ' ng-click="addNewItem()"'
+
+'.source.js':
+    'Step 1':
+        'prefix': '1.'
+        'body': 'var app = angular.module(\'todo\', []);'
+    'Step 2':
+        'prefix': '2.'
+        'body': 'app.controller(\'TodoController\', [\'$scope\', (scope) => { \n\t\n\t$1\n\t\n}]);'
+    'Step 3':
+        'prefix': '3.'
+        'body': 'scope.items = [];\n'
+    'Step 4':
+        'prefix': '4.'
+        'body': 'scope.addNewItem = () => scope.items.push({\n\ttext: \'\',\n\tedit: true,\n\tfocus: false\n});\n'
+    'Step 5':
+        'prefix': '5.'
+        'body': 'scope.toggleEdit = item => item.edit = !item.edit;\n'
+    'Step 6':
+        'prefix': '6.'
+        'body': 'scope.removeItem = item => scope.items = scope.items.filter(i => i != item);'
+    'Step 20':
+        'prefix': '20.'
+        'body': 'app.factory(\'socket\', () => io.connect(\'http:\/\/localhost\'));'
+    'Step 21':
+        'prefix': '21.'
+        'body': 'app.factory(\'todoLists\', [\'socket\', socket => ({\n\t\n\t$1\n\t\n})]);'
+    'Step 22':
+        'prefix': '22.'
+        'body': 'var lists = { };'
+    'Step 23':
+        'prefix': '23.'
+        'body': 'io.on(\'connection\' , socket => {\n\t\n\t$1\n\t\n});'
+    'Step 24':
+        'prefix': '24.'
+        'body': 'socket.on(\'get\', (id, callback) => callback(lists[id]));\n'
+    'Step 25':
+        'prefix': '25.'
+        'body': 'socket.on(\'update\', todoList => lists[todoList.id] = todoList.items);'
+    'Step 26':
+        'prefix': '26.'
+        'body': 'get: id => {\n\tvar deferred = Promise.defer();\n\tsocket.emit(\'get\', id, items => deferred.resolve(items));\n\treturn deferred.promise;\n},\n'
+    'Step 27':
+        'prefix': '27.'
+        'body': 'update: (id, items) => socket.emit(\'update\', {\n\tid: id,\n\titems: items.map(i => ({ text: i.text }))\n})'
+    'Step 28':
+        'prefix': '28.'
+        'body': 'app.controller(\'TodoController\', [\'$scope\', \'todoLists\', \'$location\', (scope, todoLists, location) => {'
+    'Step 29':
+        'prefix': '29.'
+        'body': 'if (location.search().id) {\n\t\n\t$1\n\t\n} else {\n\t\n\t\n\t\n}\n'
+    'Step 30':
+        'prefix': '30.'
+        'body': 'todoLists.get(location.search().id).then(items => {\n\t\n\tscope.items = items.map(i => ({\n\t\ttext: i.text,\n\t\tedit: false,\n\t\tfocus: false\n\t}));\n\t\n\tscope.$apply();\n\t\n});'
+    'Step 31':
+        'prefix': '31.'
+        'body': 'location.search({ id: uuid() });'
+    'Step 32':
+        'prefix': '32.'
+        'body': 'var update = () => todoLists.update(location.search().id, scope.items);\n'
+    'Step 33':
+        'prefix': '33.'
+        'body': 'update();'
