@@ -1,13 +1,84 @@
 
-# Atom snippets for workshop2
+# Snippets for workshop3
 
 '.text.html, .text.html .meta.scope.between-tag-pair, .text.html .punctuation.tag.begin':
-    'Step 7':
-        'prefix': '7.'
-        'body': ' ng-app="todo"'
-
+    'Step 15':
+        'prefix': '15.'
+        'body': ' ng-app="liveChat"'
+    'Step 16':
+        'prefix': '16.'
+        'body': ' ng-controller="ChatController"'
+    'Step 17':
+        'prefix': '17.'
+        'body': ' ng-submit="send()"'
+    'Step 18':
+        'prefix': '18.'
+        'body': '<md-input-container class="md-block">\n\n\t$1\n\n</md-input-container>'
+    'Step 19':
+        'prefix': '19.'
+        'body': '<label>Send a message</label>'
+    'Step 20':
+        'prefix': '20.'
+        'body': '<input md-maxlength="150" required md-no-asterisk name="msgText" ng-model="text">'
+    'Step 21':
+        'prefix': '21.'
+        'body': '<md-button class="md-raised md-primary" ng-click="send()">Send</md-button>'
+    'Step 22':
+        'prefix': '22.'
+        'body': '<md-content class="chatContainer">\n\n\t$1\n\n</md-content>'
+    'Step 23':
+        'prefix': '23.'
+        'body': '<md-list>\n\n\t$1\n\n</md-list>'
+    'Step 24':
+        'prefix': '24.'
+        'body': '<md-list-item class="md-1-line" ng-repeat="message in messages">\n\n\t$1\n\n</md-list-item>'
+    'Step 25':
+        'prefix': '25.'
+        'body': '<div class="md-list-item-text">\n\t<h3>{{message.name}}</h3>\n\t<p>{{message.text}}</p>\n</div>\n\n'
+    'Step 26':
+        'prefix': '26.'
+        'body': '<md-divider ng-if="!$last"></md-divider>'
 
 '.source.js':
     'Step 1':
         'prefix': '1.'
-        'body': 'var app = angular.module(\'todo\', []);'
+        'body': 'var app = angular.module(\'liveChat\', [\'ngMaterial\']);'
+    'Step 2':
+        'prefix': '2.'
+        'body': 'app.factory(\'socket\', () => io.connect(\'http://localhost\'));'
+    'Step ':
+        'prefix': '3.'
+        'body': 'app.controller(\'ChatController\', [\'$scope\', \'$mdDialog\', \'socket\', (scope, mdDialog, socket) => {\n\n\t$1\n\n}]);'
+    'Step 4':
+        'prefix': '4.'
+        'body': 'scope.messages = [];\nscope.text = \'\';\n\n'
+    'Step 5':
+        'prefix': '5.'
+        'body': 'scope.send = () => {\n\n\t$1\n\n};'
+    'Step 6':
+        'prefix': '6.'
+        'body': 'io.on(\'connection\', socket => {\n\n\t$1\n\n});'
+    'Step 7':
+        'prefix': '7.'
+        'body': 'socket.on(\'sendMsg\', msg => io.emit(\'msg\', msg));'
+    'Step 8':
+        'prefix': '8.'
+        'body': 'socket.emit(\'sendMsg\', {\n\tname: scope.name,\n\ttext: scope.text\n});\n\n'
+    'Step 9':
+        'prefix': '9.'
+        'body': 'scope.text = \'\';'
+    'Step 10':
+        'prefix': '10.'
+        'body': 'socket.on(\'msg\', message => {\n\n\t$1\n\n});'
+    'Step 11':
+        'prefix': '11.'
+        'body': 'scope.messages.unshift(message);\nscope.$apply();'
+    'Step 12':
+        'prefix': '12.'
+        'body': 'var getNameDialog = mdDialog.prompt()\n'
+    'Step 13':
+        'prefix': '13.'
+        'body': '\t.title("Hey there! What do you want your name to be?")\n.placeholder(\'Nickname\')\n.ok("That\'s me!")\n.cancel(\'Make me Anonymous\');\n\n'
+    'Step 14':
+        'prefix': '14.'
+        'body': 'mdDialog.show(getNameDialog).then(\nresult => scope.name = result,\n() => scope.name = \'Anonymous\'\n);'
