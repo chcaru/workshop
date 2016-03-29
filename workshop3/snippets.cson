@@ -34,7 +34,7 @@
         'body': '<md-list-item class="md-1-line" ng-repeat="message in messages">\n\n\t$1\n\n</md-list-item>'
     'Step 25':
         'prefix': '25.'
-        'body': '<div class="md-list-item-text">\n\t<h3>{{message.name}}</h3>\n\t<p>{{message.text}}</p>\n</div>\n\n'
+        'body': '<div class="md-list-item-text">\n\t<h3>{{message.name}}</h3>\n\t<p>{{message.text}}</p>\n</div>'
     'Step 26':
         'prefix': '26.'
         'body': '<md-divider ng-if="!$last"></md-divider>'
@@ -46,7 +46,7 @@
     'Step 2':
         'prefix': '2.'
         'body': 'app.factory(\'socket\', () => io.connect(\'http://localhost\'));'
-    'Step ':
+    'Step 3':
         'prefix': '3.'
         'body': 'app.controller(\'ChatController\', [\'$scope\', \'$mdDialog\', \'socket\', (scope, mdDialog, socket) => {\n\n\t$1\n\n}]);'
     'Step 4':
@@ -63,7 +63,7 @@
         'body': 'socket.on(\'sendMsg\', msg => io.emit(\'msg\', msg));'
     'Step 8':
         'prefix': '8.'
-        'body': 'socket.emit(\'sendMsg\', {\n\tname: scope.name,\n\ttext: scope.text\n});\n\n'
+        'body': 'socket.emit(\'sendMsg\', {\n\tname: scope.name,\n\ttext: scope.text\n});'
     'Step 9':
         'prefix': '9.'
         'body': 'scope.text = \'\';'
@@ -78,7 +78,7 @@
         'body': 'var getNameDialog = mdDialog.prompt()\n'
     'Step 13':
         'prefix': '13.'
-        'body': '\t.title("Hey there! What do you want your name to be?")\n.placeholder(\'Nickname\')\n.ok("That\'s me!")\n.cancel(\'Make me Anonymous\');\n\n'
+        'body': '\t.title("Hey there! What do you want your name to be?")\n.placeholder(\'Nickname\')\n.ok("That\'s me!")\n.cancel(\'Make me Anonymous\');'
     'Step 14':
         'prefix': '14.'
-        'body': 'mdDialog.show(getNameDialog).then(\nresult => scope.name = result,\n() => scope.name = \'Anonymous\'\n);'
+        'body': 'mdDialog.show(getNameDialog).then(\n\tresult => scope.name = result,\n\t() => scope.name = \'Anonymous\'\n);'

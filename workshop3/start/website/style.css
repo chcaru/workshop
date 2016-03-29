@@ -17,6 +17,7 @@ body {
 
 .chatContainer {
     max-height: 50%;
+    width: 100%;
 }
 
 form > button {
